@@ -266,4 +266,22 @@ public class Customer {
   public void setAgentCode(long agentCode) {
     this.agentCode = agentCode;
   }
+
+  /**
+   * Getter for the orders belonging to this customer.
+   *
+   * @return A set of orders for this customer
+   */
+  public Set<Order> getOrders() {
+    return orders;
+  }
+
+  /**
+   * Setter for the orders belonging to this customer.
+   *
+   * @param orders  A set of orders for this customer
+   */
+  public void setOrders(Set<Order> orders) {
+    this.orders = orders;
+  }
 }
