@@ -4,8 +4,6 @@ import com.lambdaschool.orders.orders.Order;
 
 import java.util.Set;
 
-public interface OrdersByCustomerName {
-  Long getCustCode();
-  String getCustName();
+public interface OrderList {
   Set<Order> getOrders();
 }
