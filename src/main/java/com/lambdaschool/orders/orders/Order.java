@@ -1,5 +1,8 @@
 package com.lambdaschool.orders.orders;
 
+import com.lambdaschool.orders.agents.Agent;
+import com.lambdaschool.orders.customers.Customer;
+
 import javax.persistence.*;
 
 /**
@@ -23,11 +26,11 @@ public class Order {
 
   @ManyToOne
   @JoinColumn(name = "CUST_CODE", nullable = false)
-  private long custCode;
+  private Customer customer;
 
   @ManyToOne
   @JoinColumn(name = "AGENT_CODE", nullable = false)
-  private long agentCode;
+  private Agent agent;
 
   @Column(name = "ORD_DESCRIPTION", nullable = false)
   private String ordDescription;
@@ -83,39 +86,39 @@ public class Order {
   }
 
   /**
-   * Getter for the customer code of the customer associated with this order.
+   * Getter for the customer associated with this order.
    *
-   * @return  The CUST_CODE stored in table ORDERS
+   * @return  A Customer
    */
-  public long getCustCode() {
-    return custCode;
+  public Customer getCustomer() {
+    return customer;
   }
 
   /**
-   * Setter for the customer code belonging to this order.
+   * Setter for the customer associated with this order.
    *
-   * @param custCode  The customer code of the customer associated with this order
+   * @param customer A Customer
    */
-  public void setCustCode(long custCode) {
-    this.custCode = custCode;
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
   }
 
   /**
-   * Getter for the agent code of the agent associated with this order.
+   * Getter for the agent associated with this order.
    *
-   * @return  The AGENT_CODE stored in table ORDERS
+   * @return An Agent
    */
-  public long getAgentCode() {
-    return agentCode;
+  public Agent getAgent() {
+    return agent;
   }
 
   /**
-   * Setter for the agent code belonging to this order
+   * Setter for the agent associated with this order.
    *
-   * @param agentCode The agent code for the agent associated with this order
+   * @param agent An Agent
    */
-  public void setAgentCode(long agentCode) {
-    this.agentCode = agentCode;
+  public void setAgent(Agent agent) {
+    this.agent = agent;
   }
 
   /**

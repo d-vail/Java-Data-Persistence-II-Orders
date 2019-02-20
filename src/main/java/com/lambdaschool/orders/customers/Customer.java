@@ -1,5 +1,6 @@
 package com.lambdaschool.orders.customers;
 
+import com.lambdaschool.orders.agents.Agent;
 import com.lambdaschool.orders.orders.Order;
 
 import javax.persistence.*;
@@ -50,7 +51,7 @@ public class Customer {
 
   @ManyToOne
   @JoinColumn(name = "AGENT_CODE", nullable = false)
-  private long agentCode;
+  private Agent agent;
 
   @OneToMany()
   private Set<Order> orders;
@@ -250,21 +251,21 @@ public class Customer {
   }
 
   /**
-   * Getter for the agent code of the agent assigned to this customer.
+   * Getter for the agent assigned to this customer.
    *
-   * @return The AGENT_CODE stored in table CUSTOMER
+   * @return An Agent
    */
-  public long getAgentCode() {
-    return agentCode;
+  public Agent getAgent() {
+    return agent;
   }
 
   /**
-   * Setter for the agent code of the agent assigned to this customer.
+   * Setter for the agent assigned to this customer.
    *
-   * @param agentCode The agent code of the assigned agent
+   * @param agent An Agent
    */
-  public void setAgentCode(long agentCode) {
-    this.agentCode = agentCode;
+  public void setAgent(Agent agent) {
+    this.agent = agent;
   }
 
   /**
