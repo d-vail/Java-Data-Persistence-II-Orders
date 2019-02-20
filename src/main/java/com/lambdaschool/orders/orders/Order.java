@@ -1,5 +1,6 @@
 package com.lambdaschool.orders.orders;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.lambdaschool.orders.agents.Agent;
 import com.lambdaschool.orders.customers.Customer;
 
@@ -24,10 +25,12 @@ public class Order {
   @Column(name = "ADVANCE_AMOUNT", nullable = false)
   private double advanceAmount;
 
+  @JsonBackReference
   @ManyToOne
   @JoinColumn(name = "CUST_CODE", nullable = false)
   private Customer customer;
 
+  @JsonBackReference
   @ManyToOne
   @JoinColumn(name = "AGENT_CODE", nullable = false)
   private Agent agent;

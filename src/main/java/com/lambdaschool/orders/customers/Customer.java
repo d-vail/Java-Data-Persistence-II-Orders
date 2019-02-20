@@ -1,9 +1,12 @@
 package com.lambdaschool.orders.customers;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.lambdaschool.orders.agents.Agent;
 import com.lambdaschool.orders.orders.Order;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -49,12 +52,14 @@ public class Customer {
   @Column(name = "PHONE_NO", nullable = false)
   private String phone;
 
+  @JsonBackReference
   @ManyToOne
   @JoinColumn(name = "AGENT_CODE", nullable = false)
   private Agent agent;
 
-  @OneToMany()
-  private Set<Order> orders;
+  @JsonManagedReference
+  @OneToMany(mappedBy = "customer")
+  private Set<Order> orders = new HashSet<>();
 
   /**
    * Default Constructor

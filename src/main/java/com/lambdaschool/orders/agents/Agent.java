@@ -1,9 +1,11 @@
 package com.lambdaschool.orders.agents;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.lambdaschool.orders.customers.Customer;
 import com.lambdaschool.orders.orders.Order;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -34,11 +36,13 @@ public class Agent {
   @Column(name = "COUNTRY")
   private String country;
 
-  @OneToMany()
-  private Set<Customer> customers;
+  @JsonManagedReference
+  @OneToMany(mappedBy = "agent")
+  private Set<Customer> customers = new HashSet<>();
 
-  @OneToMany()
-  private Set<Order> orders;
+  @JsonManagedReference
+  @OneToMany(mappedBy = "agent")
+  private Set<Order> orders = new HashSet<>();
 
   /**
    * Default Constructor
