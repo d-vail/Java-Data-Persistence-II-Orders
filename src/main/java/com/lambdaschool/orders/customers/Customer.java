@@ -1,6 +1,9 @@
 package com.lambdaschool.orders.customers;
 
+import com.lambdaschool.orders.orders.Order;
+
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * CUSTOMER table modeled after the sample database found on W3Resource.
@@ -48,6 +51,9 @@ public class Customer {
   @ManyToOne
   @JoinColumn(name = "AGENT_CODE", nullable = false)
   private long agentCode;
+
+  @OneToMany()
+  private Set<Order> orders;
 
   /**
    * Default Constructor

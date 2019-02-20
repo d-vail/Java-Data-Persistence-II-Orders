@@ -1,6 +1,7 @@
 package com.lambdaschool.orders.agents;
 
 import com.lambdaschool.orders.customers.Customer;
+import com.lambdaschool.orders.orders.Order;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -35,6 +36,9 @@ public class Agent {
 
   @OneToMany()
   private Set<Customer> customers;
+
+  @OneToMany()
+  private Set<Order> orders;
 
   /**
    * Default Constructor
