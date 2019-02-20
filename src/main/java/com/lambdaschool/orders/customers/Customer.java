@@ -58,7 +58,7 @@ public class Customer {
   private Agent agent;
 
   @JsonManagedReference
-  @OneToMany(mappedBy = "customer")
+  @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "customer")
   private Set<Order> orders = new HashSet<>();
 
   /**
