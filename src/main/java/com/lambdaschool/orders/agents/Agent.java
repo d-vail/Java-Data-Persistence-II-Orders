@@ -143,4 +143,40 @@ public class Agent {
   public void setCountry(String country) {
     this.country = country;
   }
+
+  /**
+   * Getter for the customers assigned to this agent.
+   *
+   * @return  A set of customers
+   */
+  public Set<Customer> getCustomers() {
+    return customers;
+  }
+
+  /**
+   * Setter for the customers assigned to this agent.
+   *
+   * @param customers A set of customers
+   */
+  public void setCustomers(Set<Customer> customers) {
+    this.customers = customers;
+  }
+
+  /**
+   * Getter for the orders associated with this agent.
+   *
+   * @return  A set of orders
+   */
+  public Set<Order> getOrders() {
+    return orders;
+  }
+
+  /**
+   * Setter for the orders associated with this agent.
+   *
+   * @param orders  A set of orders
+   */
+  public void setOrders(Set<Order> orders) {
+    this.orders = orders;
+  }
 }
