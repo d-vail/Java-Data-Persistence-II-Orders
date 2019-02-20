@@ -1,6 +1,9 @@
 package com.lambdaschool.orders.agents;
 
+import com.lambdaschool.orders.customers.Customer;
+
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * AGENT table modeled after the sample database found on W3Resource.
@@ -29,6 +32,9 @@ public class Agent {
 
   @Column(name = "COUNTRY")
   private String country;
+
+  @OneToMany()
+  private Set<Customer> customers;
 
   /**
    * Default Constructor
